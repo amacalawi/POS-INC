@@ -1,0 +1,35 @@
+<div class="m_datatable m-datatable m-datatable--default m-datatable--loaded">
+    <div class="m-datatable__pager m-datatable--paging-loaded clearfix">
+        <ul class="m-datatable__pager-nav pagination" ng-if="1 < pages.length">
+            <li ng-if="boundaryLinks" ng-class="{ disabled : pagination.current == 1 }">
+                <a class="m-datatable__pager-link m-datatable__pager-link--first" ng-class="{ 'm-datatable__pager-link--disabled' : pagination.current == 1 }" 
+                ng-attr-disabled="{{ pagination.current == 1 ? 'disabled' : '' }}"
+                href="" ng-click="setCurrent(1)">
+                    <i class="la la-angle-double-left"></i>
+                </a>
+            </li>
+            <li ng-if="directionLinks" ng-class="{ disabled : pagination.current == 1 }" class="ng-scope">
+                <a class="m-datatable__pager-link m-datatable__pager-link--prev" ng-class="{ 'm-datatable__pager-link--disabled' : pagination.current == 1 }" 
+                ng-attr-disabled="{{ pagination.current == 1 ? 'disabled' : '' }}" href="" ng-click="setCurrent(pagination.current - 1)" class="ng-binding">
+                    <i class="la la-angle-left"></i>
+                </a>
+            </li>
+            <li ng-repeat="pageNumber in pages track by $index" ng-class="{ active : pagination.current == pageNumber, disabled : pageNumber == '...' }">
+                <a class="m-datatable__pager-link m-datatable__pager-link-number" ng-class="{ 'm-datatable__pager-link--active' : pagination.current == pageNumber, disabled : pageNumber == '...' }" href="" ng-click="setCurrent(pageNumber)">{{ pageNumber }}</a>
+            </li>
+
+            <li ng-if="directionLinks" ng-class="{ disabled : pagination.current == pagination.last }" class="ng-scope">
+                <a class="m-datatable__pager-link m-datatable__pager-link--next" ng-class="{ 'm-datatable__pager-link--disabled' : pagination.current == pagination.last }" 
+                ng-attr-disabled="{{ pagination.current == pagination.last ? 'disabled' : '' }}" href="" ng-click="setCurrent(pagination.current + 1)" class="ng-binding">
+                    <i class="la la-angle-right"></i>
+                </a>
+            </li>
+            <li ng-if="boundaryLinks"  ng-class="{ disabled : pagination.current == pagination.last }">
+                <a class="m-datatable__pager-link m-datatable__pager-link--last" ng-class="{ 'm-datatable__pager-link--disabled' : pagination.current == pagination.last }" 
+                ng-attr-disabled="{{ pagination.current == pagination.last ? 'disabled' : '' }}" href="" ng-click="setCurrent(pagination.last)">
+                    <i class="la la-angle-double-right"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

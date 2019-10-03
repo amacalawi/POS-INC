@@ -1,0 +1,87 @@
+<div class="modal fade" id="view-product-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <form method="POST" name="addProduct" role="form" ng-submit="saveProduct(addProduct.$valid)">
+        <div class="modal-dialog modal-super-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="add-new-product-title">
+                        All Item for Product
+                    </h5>
+                </div>
+                <div class="modal-body">
+                    <!--begin: Search Form -->
+                    <div ng-include="'partials/widgets/search-bar/search-item.html'"></div>
+                    <!--end: Search Form -->
+                    <table id="item-product" class="table table-vmiddle m-b-20">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Picture</th>
+                                <th>Item Description</th>
+                                <th>Quantity</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody class="m-datatable__body">
+                            <tr>
+                                <td colspan="5" class="text-center">there are no records to display.</td>
+                            </tr>
+                            <tr dir-paginate="value in data_item | itemsPerPage:5" total-items="total_item">
+                                <td><strong class="theme-color">{{ value.product_id }}</strong></td>
+                                <td>
+                                    <div class="m-widget3__user-img" ng-if="value.product_img != NULL">
+                                        <img title="{{ value.product_img }}" ng-src="{{ api }}/uploads/product/{{ value.product_img }}" />
+                                    </div>
+                                    <div class="m-widget3__user-img" ng-if="value.product_img == NULL">
+                                        <img title="empty image" ng-src="{{ api }}/uploads/product/dummy.png" />
+                                    </div>
+                                </td>
+                                <td>{{ value.product_code }} - <strong>{{ value.product_name }}</strong> { {{ value.product_desc }} }</td>
+                                <td class="text-center">
+                                    <input required="" type="text" class="form-control m-input m-input--solid" id="product_code" name="product_code" ng-model="form.product_code" aria-describedby="product_code" placeholder="insert item code here">
+                                </td>
+                                <td>
+                                    <button ng-click="addItem(value.product_id)" type="button" class="btn  btn-primary-1">
+                                        Add
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!--end: Datatable -->
+
+                    <table id="product-item" class="table table-striped table-vmiddle">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Picture</th>
+                                <th>Item Description</th>
+                                <th class="text-center">Quantity</th>
+                            </tr>
+                        </thead>
+                        <tbody class="m-datatable__body">
+                            <tr ng-show="total_product <= 0">
+                                <td colspan="4" class="text-center">there are no records to display.</td>
+                            </tr>
+                            <tr dir-paginate="value in data_product | itemsPerPage:5" total-items="total_product">
+                                <td><strong class="theme-color">{{ $index + 1 }}</strong></td>
+                                <td>
+                                    <div class="m-widget3__user-img" ng-if="value.product_img != NULL">
+                                        <img title="{{ value.product_img }}" ng-src="{{ api }}/uploads/product/{{ value.product_img }}" />
+                                    </div>
+                                    <div class="m-widget3__user-img" ng-if="value.product_img == NULL">
+                                        <img title="empty image" ng-src="{{ api }}/uploads/product/dummy.png" />
+                                    </div>
+                                </td>
+                                <td>{{ value.product_code }} - <strong>{{ value.product_name }}</strong> { {{ value.product_desc }} }</td>
+                                <td class="text-center">{{ value.product_price }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!--end: Datatable -->
+                    <div ng-include="'partials/templates/prodPagination.html'"></div>
+                    <div class="m-b-20"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

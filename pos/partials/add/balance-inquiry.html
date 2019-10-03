@@ -1,0 +1,76 @@
+<div class="modal fade" id="balance-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <form method="POST" name="balanceForm" id="balanceForm" role="form" ng-submit="balance(balanceForm.$valid)">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="add-title">
+                        BALANCE INQUIRY
+                    </h5>
+                </div>
+                <div class="modal-body">
+                    <div class="row">   
+                        <div class="col-sm-12">
+                            <div class="form-group m-form__group">
+                                <div class="input-group">
+                                    <input autocomplete="off" name="keywords"  ng-model="form.keywords" ng-change="searchBalance()" type="text" class="form-control form-control-lg m-input m-input--solid" placeholder="search or tap your id...">
+                                    <div class="input-group-append">
+                                        <button id="reset-keywords" ng-click="clearBalance(yes)" class="btn btn-primary-1" type="button">
+                                            <i class="fa fa-reply-all"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <span class="m-form__help" ng-show="balances[0].searches == 'true' && balances[0].searches == 'true'">
+                                    there is one registered found!
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row m-b-10" ng-show="balances[0].searches == 'true' && balances[0].searches == 'true'">
+                        <div class="col-sm-12">
+                            <div class="form-group m-b-0">
+                                <label class="c-white m-b-0 full-width">
+                                    <div class="row">
+                                        <span class="col-lg-2">BARCODE: </span>
+                                        <strong class="col-lg-10">
+                                            <div id="barCodeId" class="barcodeplace">
+                                                <div barcode-generator="{{ balances[0].stud_no }}" style="height:20px;"></div>
+                                            </div>
+                                        </strong>
+                                    </div>
+                                </label>
+                            </div>
+                            <div class="form-group m-b-0">
+                                <label class="c-white m-b-0 full-width">
+                                    <div class="row">
+                                        <span class="col-lg-2">ID NO: </span>
+                                        <strong class="col-lg-10 p-l-35">{{ balances[0].fullname }}</strong>
+                                    </div>
+                                </label>
+                            </div>
+                            <div class="form-group m-b-15">
+                                <label class="c-white m-b-0 full-width">
+                                    <div class="row">
+                                        <span class="col-lg-2">CREDITS: </span>
+                                        <strong class="col-lg-10 p-l-35">{{ balances[0].credits }}</strong>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <button ng-click="redirectLoad()" type="button" class="btn btn-primary-1 m-r-10">
+                                Add Credit
+                            </button>
+                            <button ng-click="resetForm()" type="button" class="btn btn-secondary-2" data-dismiss="modal">
+                                Close
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

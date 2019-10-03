@@ -1,0 +1,88 @@
+<div class="modal fade" id="add-{{ page }}-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <form method="POST" name="addForm" id="addForm" role="form" ng-submit="saveForm(addForm.$valid)">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="add-title">
+                        Add New {{ pagename | capitalize }}
+                    </h5>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group m-form__group">
+                                <label for="code">
+                                    Code
+                                </label>
+                                <input required type="text" class="form-control m-input m-input--solid" id="code"
+                                 name="code" ng-model="form.code" aria-describedby="code" placeholder="insert code here">
+                                 <span ng-show="!form.code" class="m-form__help theme-color m-t-5">
+                                this field is required
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group m-form__group required">
+                                <label for="name">
+                                    Name
+                                </label>
+                                <input required type="text" class="form-control m-input m-input--solid" id="name"
+                                 name="name" ng-model="form.name" aria-describedby="name" placeholder="insert name here">
+                                <span ng-show="!form.name" class="m-form__help theme-color m-t-5">
+                                this field is required
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group m-form__group">
+                                <label for="desc">
+                                    Description
+                                </label>
+                                <textarea required class="form-control m-input m-input--solid" id="desc" name="desc" ng-model="form.desc" rows="3" placeholder="insert description here"></textarea>
+                                <span ng-show="!form.desc" class="m-form__help theme-color m-t-5">
+                                this field is required
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <label for="privileges">
+                                Privileges
+                            </label>
+                        </div>
+                        <div class="col-sm-6" ng-repeat="priv in privileges">
+                            <div class="form-group m-form__group">
+                                <div class="m-checkbox-inline">
+                                    <label class="m-checkbox m-checkbox--solid">
+                                      <input type="checkbox" name="{{priv.id}}" ng-model="form.privileges" value="{{priv.id}}" ng-checked="form.addDefault == 0"> {{priv.text}}
+                                      <span></span>
+                                    </label>
+                                    <span ng-show="!form.privileges" class="m-form__help theme-color m-t-5">
+                                    this field is required
+                                    </span>
+                                    <div class="form-group m-form__group p-l-20">
+                                        <label class="m-checkbox m-checkbox--solid m-r-10" ng-repeat="cr in priv.crud">
+                                          <input type="checkbox" id="{{cr.id}}" name="crud_{{cr.label}}_{{priv.id}}" value="{{cr.text}}" ng-checked="form.addDefault == 0"> {{cr.text}}
+                                          <span></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" ng-disabled="addForm.$invalid" class="btn btn-primary-1">
+                        Save Changes
+                    </button>
+                    <button ng-click="resetForm()" type="button" class="btn btn-secondary-2" data-dismiss="modal">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

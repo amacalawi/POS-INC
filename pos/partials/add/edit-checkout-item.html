@@ -1,0 +1,97 @@
+<div class="modal fade" id="edit-checkout-item-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <form method="POST" name="editItemForm" id="editItemForm" role="form" ng-submit="editCheckoutItem(editItemForm.$valid)">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="add-title">
+                        Edit Item ({{ checkout_item.index }})
+                    </h5>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group m-form__group row">
+                                <label for="example-text-input" class="col-2 col-form-label">
+                                    Item
+                                </label>
+                                <div class="col-10">
+                                    <input class="form-control m-input m-input--solid" type="text" name="checkout_item" id="checkout_item" disabled="disabled" ng-model="checkout_item.item">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group m-form__group row">
+                                <label for="example-text-input" class="col-2 col-form-label">
+                                    Price
+                                </label>
+                                <div class="col-10">
+                                    <input class="form-control m-input m-input--solid" type="text" name="checkout_price" id="checkout_price" disabled="disabled" ng-model="checkout_item.price">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group m-form__group row">
+                                <label for="example-text-input" class="col-2 col-form-label">
+                                    Quantity
+                                </label>
+                                <div class="col-10">
+                                    <input required autocomplete="off" class="form-control m-input m-input--solid" type="text" name="checkout_quantity" id="checkout_quantity" ng-change="checkItem()" ng-model="checkout_item.quantity" floating-number-only ng-pattern="/(^[0-9]{1,9})+(\.[0-9]{1,2})?$/">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group m-form__group row">
+                                <label for="example-text-input" class="col-2 col-form-label">
+                                    Total
+                                </label>
+                                <div class="col-10">
+                                    <input class="form-control m-input m-input--solid" type="text" name="checkout_total" id="checkout_total" disabled="disabled" ng-model="checkout_item.total">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group m-form__group row">
+                                <label for="example-text-input" class="col-2 col-form-label">
+                                </label>
+                                <div class="col-10">
+                                    <button type="button" ng-click="concat_btn($event)" class="btn-commands btn btn-primary-1 m-r-10" value="1">1</button>
+                                    <button type="button" ng-click="concat_btn($event)" class="btn-commands btn btn-primary-1 m-r-10" value="2">2</button>
+                                    <button type="button" ng-click="concat_btn($event)" class="btn-commands btn btn-primary-1 m-r-10" value="3">3</button>
+                                    <button type="button" ng-click="concat_btn($event)" class="btn-commands btn btn-primary-1 m-r-10" value="4">4</button>
+                                    <button type="button" ng-click="concat_btn($event)" class="btn-commands btn btn-primary-1 m-r-10" value="5">5</button>
+                                    <button type="button" ng-click="concat_btn($event)" class="btn-commands btn btn-primary-1 m-r-10" value="6">6</button>
+                                    <button type="button" ng-click="concat_btn($event)" class="btn-commands btn btn-primary-1" value="7">7</button>
+                                    <button class="btn-commands btn btn-primary-1 m-r-10" value="8">8</button>
+                                    <button type="button" ng-click="concat_btn($event)" class="btn-commands btn btn-primary-1 m-r-10" value="9">9</button>
+                                    <button type="button" ng-click="concat_btn($event)" class="btn-commands btn btn-primary-1 m-r-10" value="0">0</button>
+                                    <button type="button" ng-click="concat_btn($event)" class="btn-commands btn btn-primary-1 m-r-10" value=".">.</button>
+                                    <button type="button" ng-click="concat_btn($event)" class="btn-commands btn btn-primary-1 m-r-10" value="clr">CLR</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <button type="submit" ng-disabled="editItemForm.$invalid" class="btn btn-primary-1 m-r-10">
+                                Save Changes
+                            </button>
+                            <button ng-click="resetForm()" type="button" class="btn btn-secondary-2" data-dismiss="modal">
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

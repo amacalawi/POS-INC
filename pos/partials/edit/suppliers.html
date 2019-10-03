@@ -1,0 +1,166 @@
+<div class="modal fade" id="edit-suppliers-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <form method="POST" name="editSupplier" id="editSupplier" role="form" ng-submit="updateSupplier(editSupplier.$valid)">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="edit-new-supplier-title">
+                        Edit Supplier ({{ form.suppliers_id }})
+                    </h5>
+                </div>
+                <div class="modal-body">
+                    <div class="row hidden">
+                        <div class="col-sm-12">
+                            <div class="form-group m-form__group">
+                                <label for="suppliers_id">
+                                    ID
+                                </label>
+                                <input type="text" class="form-control m-input m-input--solid" id="suppliers_id"
+                                 name="suppliers_id" ng-model="form.suppliers_id" aria-describedby="suppliers_code" placeholder="insert code here">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-group m-form__group">
+                                <label for="suppliers_code">
+                                    Code
+                                </label>
+                                <input type="text" class="form-control m-input m-input--solid" id="suppliers_code"
+                                 name="suppliers_code" ng-model="form.suppliers_code" aria-describedby="suppliers_code" placeholder="insert code here">
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group m-form__group required">
+                                <label for="suppliers_name">
+                                    Name
+                                </label>
+                                <input required type="text" class="form-control m-input m-input--solid" id="suppliers_name"
+                                 name="suppliers_name" ng-model="form.suppliers_name" aria-describedby="suppliers_name" placeholder="insert name here">
+                                <span ng-show="!form.suppliers_name" class="m-form__help theme-color m-t-5">
+                                this field is required
+                                </span>
+                            </div>
+                            
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group m-form__group">
+                                <label for="suppliers_desc">
+                                    Description
+                                </label>
+                                <input type="text" class="form-control m-input m-input--solid" id="suppliers_desc"
+                                 name="suppliers_desc" ng-model="form.suppliers_desc" aria-describedby="suppliers_desc" placeholder="insert description name here">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-group m-form__group">
+                                <label for="suppliers_phone">
+                                    Phone number
+                                </label>
+                                <input numbers-only type="text" class="form-control m-input m-input--solid" id="suppliers_phone" name="suppliers_phone" ng-model="form.suppliers_phone" aria-describedby="suppliers_phone" placeholder="insert phone no here">
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group m-form__group required">
+                                <label for="suppliers_mobile">
+                                    Mobile Number
+                                </label>
+                                <input numbers-only required type="text" class="form-control m-input m-input--solid" id="suppliers_mobile" name="suppliers_mobile" ng-model="form.suppliers_mobile" aria-describedby="suppliers_mobile" placeholder="insert mobile no here">
+                                <span ng-show="!form.suppliers_mobile" class="m-form__help theme-color m-t-5 m-t-5">
+                                this field is required
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group m-form__group">
+                                <label for="suppliers_fax">
+                                    Fax Number
+                                </label>
+                                <input numbers-only type="text" class="form-control m-input m-input--solid" id="suppliers_fax" name="suppliers_fax" ng-model="form.suppliers_fax" aria-describedby="suppliers_fax" placeholder="insert fax no here">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-group m-form__group">
+                                <label for="suppliers_tin">
+                                    TIN
+                                </label>
+                                <input type="text" class="form-control m-input m-input--solid" id="suppliers_tin" name="suppliers_tin" ng-model="form.suppliers_tin" aria-describedby="suppliers_tin" placeholder="insert tin here">
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group m-form__group required">
+                                <label for="suppliers_mobile">
+                                    Shipping Method
+                                </label>
+                                <select data-select-watcher class="selectpicker form-control m-bootstrap-select m-bootstrap-select--solid m_selectpicker m-input--solid" ng-model="form.shipping_method_id" required ng-options="shipping2.value as shipping2.name for shipping2 in shipping_method" id="shipping_method_id" name="shipping_method_id">
+                                <option value="" selected>select shipping method here</option>
+                                </select>
+                                <span ng-show="!form.shipping_method_id" class="m-form__help theme-color m-t-5">
+                                this field is required
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <div class="form-group m-form__group">
+                                <label for="suppliers_mobile">
+                                    Payment Terms
+                                </label>
+                                <select data-select-watcher class="selectpicker form-control m-bootstrap-select m-bootstrap-select--solid m_selectpicker m-input--solid" ng-model="form.payment_terms_id" ng-options="terms2.value as terms2.name for terms2 in payment_terms" id="payment_terms_id" name="payment_terms_id">
+                                <option value="" selected>select payment terms here</option>
+                                </select>
+                                <span ng-show="!form.payment_terms_id" class="m-form__help theme-color m-t-5 help-block">
+                                this field is required
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group m-form__group">
+                                <label for="suppliers_bank_name">
+                                    Bank Name
+                                </label>
+                                <input type="text" class="form-control m-input m-input--solid" id="suppliers_bank_name"
+                                 name="suppliers_bank_name" ng-model="form.suppliers_bank_name" aria-describedby="suppliers_bank_name" placeholder="insert bank name here">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group m-form__group">
+                                <label for="suppliers_bank_no">
+                                    Bank Account No
+                                </label>
+                                <input type="text" class="form-control m-input m-input--solid" id="suppliers_bank_no"
+                                 name="suppliers_bank_no" ng-model="form.suppliers_bank_no" aria-describedby="suppliers_bank_no" placeholder="insert bank account no here">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group m-form__group required">
+                                <label for="suppliers_address">
+                                    Address
+                                </label>
+                                <textarea required class="form-control m-input m-input--solid" id="suppliers_address" name="suppliers_address" ng-model="form.suppliers_address" rows="3" placeholder="insert address here"></textarea>
+                                <span ng-show="!form.suppliers_address" class="m-form__help theme-color m-t-5">
+                                this field is required
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" ng-disabled="editSupplier.$invalid" class="btn btn-primary-1">
+                        Save Changes
+                    </button>
+                    <button ng-click="resetForm()" type="button" class="btn btn-secondary-2" data-dismiss="modal">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

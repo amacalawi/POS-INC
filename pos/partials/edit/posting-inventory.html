@@ -1,0 +1,113 @@
+<div class="modal fade" id="edit-posting-inventory-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <form method="POST" name="editItem" id="editItem" role="form" ng-submit="postItem(editItem.$valid)">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="edit-title">
+                        Post Inventory - Product ID ({{ form.product_id }})
+                    </h5>
+                </div>
+                <div class="modal-body">
+                    <div class="row hidden">
+                        <div class="col-sm-12">
+                            <div class="form-group m-form__group">
+                                <label for="id">
+                                    ID
+                                </label>
+                                <input type="text" class="form-control m-input m-input--solid" id="id"
+                                 name="id" ng-model="form.id" aria-describedby="id" placeholder="insert id here">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group m-form__group">
+                                <label for="product_code">
+                                    Code
+                                </label>
+                                <input required type="text" class="form-control m-input m-input--solid" id="product_code" name="product_code" ng-model="form.product_code" aria-describedby="product_code" placeholder="insert code here" disabled="disabled">
+                                <span ng-show="!form.product_code" class="m-form__help theme-color m-t-5">
+                                    this field is required
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group m-form__group required">
+                                <label for="product_name">
+                                    Name
+                                </label>
+                                <input required type="text" class="form-control m-input m-input--solid" id="product_name" name="product_name" ng-model="form.product_name" aria-describedby="product_name" placeholder="insert name here" disabled="disabled">
+                                <span ng-show="!form.product_name" class="m-form__help theme-color m-t-5">
+                                    this field is required
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group m-form__group">
+                                <label for="product_quantity">
+                                    Inventory Quantity
+                                </label>
+                                <input required type="text" class="form-control m-input m-input--solid" id="product_quantity" name="product_quantity" ng-model="form.product_quantity" aria-describedby="product_quantity" placeholder="insert code here" disabled="disabled">
+                                <span ng-show="!form.product_quantity" class="m-form__help theme-color m-t-5">
+                                    this field is required
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group m-form__group">
+                                <label for="product_quantity">
+                                    Post Quantity
+                                </label>
+                                <input required type="text" class="form-control m-input m-input--solid" id="post_quantity" name="post_quantity" ng-model="form.post_quantity" aria-describedby="post_quantity" placeholder="insert quantity here">
+                                <span ng-show="!form.post_quantity" class="m-form__help theme-color m-t-5">
+                                    this field is required 
+                                </span>
+                                <span ng-show="form.post_quantity > form.product_quantity && form.inventory_adjustment == 2" class="m-form__help theme-color m-t-5">
+                                    post qty requires <= inventory qty 
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group m-form__group">
+                                <label for="suppliers_mobile">
+                                    Inventory Adjustment
+                                </label>
+                                <select required data-select-watcher class="selectpicker form-control m-bootstrap-select m-bootstrap-select--solid m_selectpicker m-input--solid" ng-model="form.inventory_adjustment" ng-options="inv.value as inv.name for inv in inventory_adjustment" id="inventory_adjustment" name="inventory_adjustment">
+                                    <option value="" selected>select inventory adjustment here</option>
+                                </select>
+                                <span ng-show="!form.inventory_adjustment" class="m-form__help theme-color m-t-5 help-block">
+                                this field is required
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" ng-show="form.inventory_adjustment > 1">
+                        <div class="col-sm-12">
+                            <div class="form-group m-form__group required">
+                                <label for="suppliers_address">
+                                    Add a reason
+                                </label>
+                                <textarea ng-required="form.inventory_adjustment > 1" class="form-control m-input m-input--solid" id="reason" name="reason" ng-model="form.reason" rows="3" placeholder="insert a reason here"></textarea>
+                                <span ng-show="!form.reason" class="m-form__help theme-color m-t-5">
+                                this field is required
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" ng-disabled="editItem.$invalid || (form.inventory_adjustment == 2 && (form.product_quantity < form.post_quantity)) || (form.post_quantity == 0)" class="btn btn-primary-1">
+                        Save Changes
+                    </button>
+                    <button ng-click="resetForm()" type="button" class="btn btn-secondary-2" data-dismiss="modal">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

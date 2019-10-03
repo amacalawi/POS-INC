@@ -1,0 +1,213 @@
+<div id="manage-system">
+    <div class="row m-t-30">
+        <div class="col-lg-3">
+            <a ng-href="{{ profiles.role == 'System Admin' ? '#/product-management' : '#/manage-system' }}" class="{{ profiles.role == 'System Admin' ? '' : 'disabled' }}" title="{{ profiles.role == 'System Admin' ? 'Product Management' : 'this function is not available' }}">
+                <div class="m-portlet m-portlet--mobile">
+                    <div class="m-portlet__head text-center">
+                        <div class="m-portlet__head-title">
+                            <div class="m-pricing-table-1__item p-t-30">
+                                <div class="m-pricing-table-1__visual">
+                                    <div class="m-pricing-table-1__hexagon1"></div>
+                                    <div class="m-pricing-table-1__hexagon2"></div>
+                                    <span class="m-pricing-table-1__icon theme-color">
+                                        <i class="fa flaticon-time"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="m-portlet__body text-center">
+                        <h3 class="title">Product Management</h3>
+                        <span>these inlcudes product category, meals, and items.</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-3">
+            <a ng-href="{{ profiles.role == 'System Admin' ? '#/settings' : '#/manage-system' }}" class="{{ profiles.role == 'System Admin' ? '' : 'disabled' }}" title="{{ profiles.role == 'System Admin' ? 'System Settings' : 'this function is not available' }}">
+                <div class="m-portlet m-portlet--mobile">
+                    <div class="m-portlet__head text-center">
+                        <div class="m-portlet__head-title">
+                            <div class="m-pricing-table-1__item p-t-30">
+                                <div class="m-pricing-table-1__visual">
+                                    <div class="m-pricing-table-1__hexagon1"></div>
+                                    <div class="m-pricing-table-1__hexagon2"></div>
+                                    <span class="m-pricing-table-1__icon theme-color">
+                                        <i class="fa flaticon-confetti"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="m-portlet__body text-center">
+                        <h3 class="title">System Settings</h3>
+                        <span>which manage all system settings.</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-3">
+            <a ng-href="{{ profiles.role == 'System Admin' ? '#/posting-inventory' : '#/manage-system' }}" class="{{ profiles.role == 'System Admin' ? '' : 'disabled' }}" title="{{ profiles.role == 'System Admin' ? 'Posting Inventory' : 'this function is not available' }}">
+                <div class="m-portlet m-portlet--mobile">
+                    <div class="m-portlet__head text-center">
+                        <div class="m-portlet__head-title">
+                            <div class="m-pricing-table-1__item p-t-30">
+                                <div class="m-pricing-table-1__visual">
+                                    <div class="m-pricing-table-1__hexagon1"></div>
+                                    <div class="m-pricing-table-1__hexagon2"></div>
+                                    <span class="m-pricing-table-1__icon theme-color">
+                                        <i class="fa flaticon-file"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="m-portlet__body text-center">
+                        <h3 class="title">Posting Inventory</h3>
+                        <span>where posting received items and goods for inventory.</span>
+                    </div>
+                </div>
+            </a>
+        </div>    
+        <div class="col-lg-3">
+            <a href="#/generate-reports">
+                <div class="m-portlet m-portlet--mobile">
+                    <div class="m-portlet__head text-center">
+                        <div class="m-portlet__head-title">
+                            <div class="m-pricing-table-1__item p-t-30">
+                                <div class="m-pricing-table-1__visual">
+                                    <div class="m-pricing-table-1__hexagon1"></div>
+                                    <div class="m-pricing-table-1__hexagon2"></div>
+                                    <span class="m-pricing-table-1__icon theme-color">
+                                        <i class="fa flaticon-clipboard"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="m-portlet__body text-center">
+                        <h3 class="title">Generate Reports</h3>
+                        <span>where generates sales reports; and others.</span>
+                    </div>
+                </div>
+            </a>
+        </div>   
+    </div>
+    <div class="row">
+        <div class="col-lg-3">
+            <a href="javascript:;" class="disabled" data-skin="dark" data-toggle="m-tooltip" data-placement="top" title="this function is not available">
+                <div class="m-portlet m-portlet--mobile">
+                    <div class="m-portlet__head text-center">
+                        <div class="m-portlet__head-title">
+                            <div class="m-pricing-table-1__item p-t-30">
+                                <div class="m-pricing-table-1__visual">
+                                    <div class="m-pricing-table-1__hexagon1"></div>
+                                    <div class="m-pricing-table-1__hexagon2"></div>
+                                    <span class="m-pricing-table-1__icon theme-color">
+                                        <i class="fa flaticon-truck"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="m-portlet__body text-center">
+                        <h3 class="title">Supplier Management</h3>
+                        <span>where enlists the suppliers for all products and goods.</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <!-- <div class="col-lg-3">
+            <a href="javascript:;" class="disabled" data-skin="dark" data-toggle="m-tooltip" data-placement="top" title="this function is not available">
+                <div class="m-portlet m-portlet--mobile">
+                    <div class="m-portlet__head text-center">
+                        <div class="m-portlet__head-title">
+                            <div class="m-pricing-table-1__item p-t-30">
+                                <div class="m-pricing-table-1__visual">
+                                    <div class="m-pricing-table-1__hexagon1"></div>
+                                    <div class="m-pricing-table-1__hexagon2"></div>
+                                    <span class="m-pricing-table-1__icon theme-color">
+                                        <i class="fa flaticon-cart"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="m-portlet__body text-center">
+                        <h3 class="title">Purchase Order</h3>
+                        <span>which manage your all purchases in items or goods.</span>
+                    </div>
+                </div>
+            </a>
+        </div> -->
+        <div class="col-lg-3">
+            <a href="#/user-discount/manage" data-skin="dark" data-toggle="m-tooltip" data-placement="top">
+                <div class="m-portlet m-portlet--mobile">
+                    <div class="m-portlet__head text-center">
+                        <div class="m-portlet__head-title">
+                            <div class="m-pricing-table-1__item p-t-30">
+                                <div class="m-pricing-table-1__visual">
+                                    <div class="m-pricing-table-1__hexagon1"></div>
+                                    <div class="m-pricing-table-1__hexagon2"></div>
+                                    <span class="m-pricing-table-1__icon theme-color">
+                                        <i class="fa flaticon-cart"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="m-portlet__body text-center">
+                        <h3 class="title">Customer's Discount</h3>
+                        <span>which manage all discount for customers.</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-3">
+            <a ng-href="{{ profiles.role == 'System Admin' ? '#/user-management/manage' : '#/manage-system' }}" class="{{ profiles.role == 'System Admin' ? '' : 'disabled' }}" title="{{ profiles.role == 'System Admin' ? 'User Management' : 'this function is not available' }}">
+                <div class="m-portlet m-portlet--mobile">
+                    <div class="m-portlet__head text-center">
+                        <div class="m-portlet__head-title">
+                            <div class="m-pricing-table-1__item p-t-30">
+                                <div class="m-pricing-table-1__visual">
+                                    <div class="m-pricing-table-1__hexagon1"></div>
+                                    <div class="m-pricing-table-1__hexagon2"></div>
+                                    <span class="m-pricing-table-1__icon theme-color">
+                                        <i class="fa flaticon-users"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="m-portlet__body text-center">
+                        <h3 class="title">User Management</h3>
+                        <span>which manage all users information.</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-3">
+            <a ng-href="{{ profiles.role == 'System Admin' ? '#/load-management' : '#/manage-system' }}" class="{{ profiles.role == 'System Admin' ? '' : 'disabled' }}" title="{{ profiles.role == 'System Admin' ? 'Load Management' : 'this function is not available' }}">
+                <div class="m-portlet m-portlet--mobile">
+                    <div class="m-portlet__head text-center">
+                        <div class="m-portlet__head-title">
+                            <div class="m-pricing-table-1__item p-t-30">
+                                <div class="m-pricing-table-1__visual">
+                                    <div class="m-pricing-table-1__hexagon1"></div>
+                                    <div class="m-pricing-table-1__hexagon2"></div>
+                                    <span class="m-pricing-table-1__icon theme-color">
+                                        <i class="fa flaticon-gift"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="m-portlet__body text-center">
+                        <h3 class="title">Load Management</h3>
+                        <span>which manage your balance and loads.</span>
+                    </div>
+                </div>
+            </a>
+        </div>      
+    </div>
+</div>

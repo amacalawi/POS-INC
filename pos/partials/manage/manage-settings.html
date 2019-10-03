@@ -1,0 +1,50 @@
+<div class="col-sm-12">
+    <div class="m-subheader p-0 m--margin-top-20">
+        <div class="d-flex align-items-center">
+            <div class="mr-auto">
+                <div ng-include="'partials/widgets/heading/manage-settings.html'"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-sm-12">
+    <div class="m-portlet m-portlet--mobile m--margin-top-20">
+        <div class="m-portlet__body">
+
+            <!--begin: Search Form -->
+            <div ng-include="'partials/widgets/search-bar/manage-settings.html'"></div>
+            <!--end: Search Form -->
+
+            <!--begin: Datatable -->
+            <table class="table table-striped table-vmiddle">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>CODE</th>
+                        <th>NAME</th>
+                        <th>DESCRIPTION</th>
+                        <th class="text-center">Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="m-datatable__body">
+
+                    <tr dir-paginate="value in data | itemsPerPage:5" total-items="totalItems">
+                        <td>{{ value.id }} </td>
+                        <td>{{ value.code }}</td>
+                        <td>{{ value.name }}</td>
+                        <td>{{ value.desc }}</td>
+                        <td  class="text-center">
+                            <a href="#/settings/{{ value.slug }}/manage" class="m-portlet__nav-link btn m-btn m-btn--hover-warning m-btn--icon m-btn--icon-only m-btn--pill" title="View">     
+                                <i class="la la-search"></i>                       
+                            </a>        
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <!--end: Datatable -->
+
+            <div ng-include="'partials/templates/pagination.html'"></div>
+        </div>
+    </div>
+</div>
+
