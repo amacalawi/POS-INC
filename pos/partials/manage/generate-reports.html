@@ -1,0 +1,79 @@
+<div class="col-sm-12">
+    <div class="m-subheader p-0 m--margin-top-20">
+        <div class="d-flex align-items-center">
+            <div class="mr-auto">
+                <div ng-include="'partials/widgets/heading/generate-reports.html'"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-sm-12">
+    <div class="m-portlet m-portlet--mobile m--margin-top-20">
+        <div class="m-portlet__body">
+            <form method="POST" name="generateReports" id="generateReports" role="form" ng-submit="generate(generateReports.$valid)">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group m-form__group">
+                            <label for="date_from">
+                                Date From
+                            </label>
+                            <input autocomplete="off" required type="text" class="form-control m-input m-input--solid m_datepicker_1" id="date_from" name="date_from" ng-model="form.date_from" aria-describedby="date_from" placeholder="insert date from here" datepicker>
+                            <span ng-show="!form.date_from" class="m-form__help theme-color m-t-5">
+                                this field is required
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group m-form__group">
+                            <label for="date_to">
+                                Date To
+                            </label>
+                            <input autocomplete="off" required type="text" class="form-control m-input m-input--solid m_datepicker_1" id="date_to" name="date_to" ng-model="form.date_to" aria-describedby="date_to" placeholder="insert date to here" datepicker>
+                            <span ng-show="!form.date_to" class="m-form__help theme-color m-t-5">
+                                this field is required
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group m-form__group">
+                            <label for="suppliers_mobile">
+                                Category
+                            </label>
+                            <select data-select-watcher class="selectpicker form-control m-bootstrap-select m-bootstrap-select--solid m_selectpicker m-input--solid" ng-model="form.category" ng-options="cat.value as cat.name for cat in categories" id="category" name="category">
+                            <option value="" selected>select category here</option>
+                            </select>
+                            <span ng-show="!form.category" class="m-form__help theme-color m-t-5 help-block">
+                            this field is required
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group m-form__group required">
+                            <label for="suppliers_mobile">
+                                Order
+                            </label>
+                            <select data-select-watcher class="selectpicker form-control m-bootstrap-select m-bootstrap-select--solid m_selectpicker m-input--solid" ng-model="form.order" required ng-options="order.value as order.name for order in orders" id="order" name="order">
+                            <option value="" selected>select order here</option>
+                            </select>
+                            <span ng-show="!form.order" class="m-form__help theme-color m-t-5">
+                            this field is required
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row m-t-15">
+                    <div class="col-lg-6">
+                    </div>
+                    <div class="col-lg-6 text-right">
+                        <button type="submit" ng-disabled="generateReports.$invalid" class="btn btn-primary-1">
+                            <i class="flaticon-interface-1"></i> &nbsp; Generate Report
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

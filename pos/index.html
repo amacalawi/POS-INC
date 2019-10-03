@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" >
+	<!-- begin::Head -->
+	<head>
+		<meta charset="utf-8" />
+		<title>
+			SAMS POS
+		</title>
+		<meta name="description" content="Latest updates and statistic charts">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!--begin::Base Styles -->  
+        <!--begin::Page Vendors -->
+		<link href="./assets/vendors/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" />
+		<!--end::Page Vendors -->
+		<link href="./assets/vendors/base/vendors.bundle.css" rel="stylesheet" type="text/css" />
+		<link href="./assets/default/base/style.bundle.css" rel="stylesheet" type="text/css" />
+		
+		<link href="./bower_components/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" type="text/css" />
+		<link href="./bower-components/angular-ui-bootstrap/dist/ui-bootstrap-csp.css" rel="stylesheet" type="text/css" />
+		<link href="./assets/css/style.css" rel="stylesheet" type="text/css" />
+		<link href="./assets/css/barcode.css" rel="stylesheet" type="text/css" />
+		<!--end::Base Styles -->
+		<!--link rel="shortcut icon" href="default/media/img/logo/favicon.ico" /-->
+	</head>
+	<!-- end::Head -->
+    <!-- begin::Body -->
+	<body class="m-page--wide m-header--fixed m-header--fixed-mobile m-footer--push m-aside--offcanvas-default" ng-app="main-App">
+		<ng-view></ng-view>
+    	<!--begin::Base Scripts -->
+		<script src="./assets/vendors/base/vendors.bundle.js" type="text/javascript"></script>
+		<script src="./assets/default/base/scripts.bundle.js" type="text/javascript"></script>
+		<!--end::Base Scripts -->   
+        <!--begin::Page Vendors -->
+		<script src="./assets/vendors/custom/fullcalendar/fullcalendar.bundle.js" type="text/javascript"></script>
+		<script src="./assets/default/custom/components/base/sweetalert2.js" type="text/javascript"></script>
+		<!--end::Page Vendors -->  
+        <!--begin::Page Snippets -->
+		<script src="./assets/default/dashboard.js" type="text/javascript"></script>
+		<script src="./assets/default/custom/components/forms/widgets/bootstrap-select.js" type="text/javascript"></script>
+
+		<script src="./bower_components/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js"></script>
+		<!--end::Page Snippets -->
+
+		<!--begin::Custom Scripts -->
+		<script src="./assets/default/script.js" type="text/javascript"></script>
+		<!--end::Custom Scripts -->
+
+		<!-- Angular JS -->
+		<script src="./assets/js/angular.min.js"></script>  
+		<script src="./assets/js/angular-route.min.js"></script>
+		<script src="./assets/js/ngStorage.min.js"></script>
+		<script src="./bower-components/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
+		<script src="./bower-components/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+		<!-- MY App -->
+		<script src="./packages/dirPagination.js"></script>
+		<script src="./routes.js"></script>
+		<script src="./services/myServices.js"></script>
+		<script src="./helper/myHelper.js"></script>
+		<script src="./directives/myDirectives.js"></script>
+		<!-- App Controller -->
+		<script src="./controllers/app.js"></script>
+	</body>
+	<!-- end::Body -->
+</html>

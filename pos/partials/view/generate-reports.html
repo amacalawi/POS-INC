@@ -1,0 +1,234 @@
+<div class="col-sm-12">
+    <div class="m-subheader p-0 m--margin-top-20">
+        <div class="d-flex align-items-center">
+            <div class="mr-auto">
+                <div ng-include="'partials/widgets/heading/generate-reports.html'"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-sm-12">
+    <div class="m-portlet m-portlet--mobile m--margin-top-20" id="print-layout">
+        <div class="m-portlet__body" ng-show="category == 1" ng-class="(category == 1) ? '' : 'hidden'">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h3><strong>Summary of Sales Report</strong></h3>
+                </div>
+                <div class="col-lg-6">
+                    <h4 class="text-right date-filter" ng-bind="dates()"></h4>
+                </div>
+            </div>
+            <table class="table table-striped m-table">
+                <thead>
+                    <tr>
+                        <th>
+                            #
+                        </th>
+                        <th>
+                            Item Description
+                        </th>
+                        <th>
+                            Category
+                        </th>
+                        <th class="text-center">
+                            Posted Qty
+                        </th>
+                        <th class="text-center">
+                            Leftovers
+                        </th>
+                        <th class="text-center">
+                            Sold Qty
+                        </th>
+                        <th class="text-right">
+                            Unit Price
+                        </th>
+                        <th class="text-right">
+                            Total Amount
+                        </th>
+                        <th class="text-right">
+                            Total Discount
+                        </th>
+                        <th class="text-right">
+                            Total Net of Discount
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="product in ReportsData">
+                        <th scope="row">
+                            {{ $index + 1 }}
+                        </th>
+                        <td>
+                            {{ product.code }} - {{ product.name }}
+                        </td>
+                        <td>
+                            {{ product.category }}
+                        </td>
+                        <td class="text-center">
+                            {{ product.posted_qty }}
+                        </td>
+                        <td class="text-center">
+                            {{ product.leftover }}
+                        </td>
+                        <td class="text-center">
+                            {{ product.sold_qty }}
+                        </td>
+                        <td class="text-right" ng-bind="parseAmount(product.unit_price)">
+                        </td>
+                        <td class="text-right" ng-bind="totalAmounts(product.unit_price, product.sold_qty)">
+                        </td>
+                        <td class="text-right" ng-bind="parseAmount(product.sold_discount)">
+                        </td>
+                        <td class="text-right" ng-bind="totalNetAmount(product.unit_price, product.sold_qty, product.sold_discount)">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="9" class="text-right">
+                            <strong class="font-16">TOTAL AMOUNT</strong>
+                        </th>
+                        <td class="text-right">
+                            <strong class="font-16 red-text" ng-bind="parseAmount(totalAmount)"></strong>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="m-portlet__body" ng-show="category == 2" ng-class="(category == 2) ? '' : 'hidden'">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h3><strong>Detailed Sales Report</strong></h3>
+                </div>
+                <div class="col-lg-6">
+                    <h4 class="text-right date-filter" ng-bind="dates()"></h4>
+                </div>
+            </div>
+            <table class="table table-striped m-table">
+                <thead>
+                    <tr>
+                        <th>
+                            #
+                        </th>
+                        <th>
+                            Item Description
+                        </th>
+                        <th>
+                            Category
+                        </th>
+                        <th class="text-center">
+                            Datetime
+                        </th>
+                        <th class="text-center">
+                            Sold Qty
+                        </th>
+                        <th class="text-right">
+                            Unit Price
+                        </th>
+                        <th class="text-right">
+                            Total Amount
+                        </th>
+                        <th class="text-right">
+                            Total Discount
+                        </th>
+                        <th class="text-right">
+                            Total Net of Discount
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="product in ReportsData">
+                        <td scope="row">
+                            {{ $index + 1 }}
+                        </th>
+                        <td>
+                            {{ product.code }} - {{ product.name }}
+                        </td>
+                        <td>
+                            {{ product.category }}
+                        </td>
+                        <td class="text-center">
+                            {{ product.datetime }}
+                        </td>
+                        <td class="text-center">
+                            {{ product.quantity }}
+                        </td>
+                        <td class="text-right" ng-bind="parseAmount(product.unit_price)">
+                        </td>
+                        <td class="text-right" ng-bind="totalAmounts(product.unit_price, product.quantity)">
+                        </td>
+                        <td class="text-right" ng-bind="parseAmount(product.discount)">
+                        </td>
+                        <td class="text-right" ng-bind="totalNetAmount(product.unit_price, product.quantity, product.discount)">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="8" class="text-right">
+                            <strong class="font-16">TOTAL AMOUNT</strong>
+                        </th>
+                        <td class="text-right">
+                            <strong class="font-16 red-text" ng-bind="parseAmount(totalAmount)"></strong>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="m-portlet__body" ng-show="category == 3" ng-class="(category == 3) ? '' : 'hidden'">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h3><strong>Load Credit Report</strong></h3>
+                </div>
+                <div class="col-lg-6">
+                    <h4 class="text-right date-filter" ng-bind="dates()"></h4>
+                </div>
+            </div>
+            <table class="table table-striped m-table">
+                <thead>
+                    <tr>
+                        <th>
+                            #
+                        </th>
+                        <th>
+                            Stud No
+                        </th>
+                        <th class="text-center">
+                            Datetime
+                        </th>
+                        <th class="text-right">
+                            Load Credit
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="load in ReportsData">
+                        <td scope="row">
+                            {{ $index + 1 }}
+                        </th>
+                        <td>
+                            {{ load.stud_no }} 
+                        </td>
+                        <td class="text-center">
+                            {{ load.datetime }}
+                        </td>
+                        <td class="text-right" ng-bind="parseAmount(load.credit)">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="text-right">
+                            <strong class="font-16">TOTAL AMOUNT</strong>
+                        </th>
+                        <td class="text-right">
+                            <strong class="font-16 red-text" ng-bind="parseAmount(totalAmount)"></strong>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<button type="button" ng-click="download-excel" class="btn-float-2 theme-bg-2 hidden">
+    <i class="la la-file-excel-o"></i>
+</button>
+
+<button type="button" ng-click="prints(500,500)" class="btn-float theme-bg">
+    <i class="la la-print"></i>
+</button>

@@ -1,0 +1,204 @@
+<div class="modal fade" id="edit-product-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <form method="POST" name="editProduct" role="form" ng-submit="updateProduct(editProduct.$valid)">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="add-new-product-title">
+                        Edit Item for {{ page | capitalize }} (<span class="line_id">{{ form.product_id }}</span>)
+                    </h5>
+                </div>
+                <div class="modal-body">
+                    <div class="row hidden">
+                        <div class="col-sm-6">
+                            <div class="form-group m-form__group required">
+                                <label for="product_code">
+                                    ID
+                                </label>
+                                <input required type="text" class="form-control m-input m-input--solid" id="product_id"
+                                 name="product_id" ng-model="form.product_id" aria-describedby="product_id" placeholder="insert item id here">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group m-form__group required">
+                                <label for="product_code">
+                                    Code
+                                </label>
+                                <input required type="text" class="form-control m-input m-input--solid" id="product_code"
+                                 name="product_code" ng-model="form.product_code" aria-describedby="product_code" placeholder="insert item code here">
+                                <span ng-show="!form.product_code" class="m-form__help theme-color m-t-5">
+                                this field is required
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group m-form__group required">
+                                <label for="product_name">
+                                    Name
+                                </label>
+                                <input required type="text" class="form-control m-input m-input--solid" id="product_name"
+                                 name="product_name" ng-model="form.product_name" aria-describedby="product_name" placeholder="insert item name here">
+                                <span ng-show="!form.product_name" class="m-form__help theme-color m-t-5">
+                                this field is required
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group m-form__group required">
+                                <label for="product_desc">
+                                    Description
+                                </label>
+                                <textarea required class="form-control m-input m-input--solid" id="product_desc" name="product_desc" ng-model="form.product_desc" rows="3" placeholder="insert item description here"></textarea>
+                                <span ng-show="!form.product_desc" class="m-form__help theme-color m-t-5">
+                                this field is required
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group m-form__group required">
+                                <label for="gl_accounts">
+                                    GL Accounts
+                                </label>
+                                <select data-select-watcher class="selectpicker form-control m-bootstrap-select m-bootstrap-select--solid m_selectpicker m-input--solid" ng-model="form.gl_accounts_id" required ng-options="gl_accounts.value as gl_accounts.name for gl_accounts in gl_accounts" id="gl_accounts_id" name="gl_accounts_id">
+                                <option value="" selected>select a gl accounts here</option>
+                                </select>
+                                <span ng-show="!form.gl_accounts_id" class="m-form__help theme-color m-t-5">
+                                this field is required
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group m-form__group required">
+                                <label for="group">
+                                    Group
+                                </label>
+                                <select data-select-watcher class="selectpicker form-control m-bootstrap-select m-bootstrap-select--solid m_selectpicker m-input--solid" ng-model="form.group_id" required ng-options="groups.value as groups.name for groups in groups" id="group_id" name="group_id">
+                                <option value="" selected>select a group here</option>
+                                </select>
+                                <span ng-show="!form.group_id" class="m-form__help theme-color m-t-5">
+                                this field is required
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group m-form__group">
+                                <label for="product_desc">
+                                    Options
+                                </label>
+                                <div class="m-checkbox-inline">
+                                    <label class="m-checkbox m-checkbox--solid">
+                                        <input type="checkbox" id="product_new" name="product_new" ng-model="form.product_new" ng-checked="form.product_new > 0">
+                                        New Item
+                                        <span></span>
+                                    </label>
+                                    <label class="m-checkbox m-checkbox--solid">
+                                        <input type="checkbox" id="product_discount" name="product_discount" ng-model="form.product_discount" ng-checked="form.product_discount > 0">
+                                        Item Discount
+                                        <span></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group m-form__group">
+                                <label for="product_desc">
+                                    Display only with
+                                </label>
+                                <div class="m-checkbox-inline">
+                                    <!-- <label ng-repeat="day in days">
+                                      <input type="checkbox" checklist-model="sched.days" checklist-value="day.id" checked="checked"> {{day.text}}
+                                    </label> -->
+                                    <label class="m-checkbox m-checkbox--solid">
+                                        <input type="checkbox" id="d1" name="d1" ng-model="form.d1" ng-checked="form.d1 > 0">
+                                        M
+                                        <span></span>
+                                    </label>
+                                    <label class="m-checkbox m-checkbox--solid">
+                                        <input type="checkbox" id="d2" name="d2" ng-model="form.d2"  ng-checked="form.d2> 0">
+                                        T
+                                        <span></span>
+                                    </label>
+                                    <label class="m-checkbox m-checkbox--solid">
+                                        <input type="checkbox" id="d3" name="d3" ng-model="form.d3"  ng-checked="form.d3 > 0">
+                                        W
+                                        <span></span>
+                                    </label>
+                                    <label class="m-checkbox m-checkbox--solid">
+                                        <input type="checkbox" id="d4" name="d4" ng-model="form.d4"  ng-checked="form.d4 > 0">
+                                        TH
+                                        <span></span>
+                                    </label>
+                                    <label class="m-checkbox m-checkbox--solid">
+                                        <input type="checkbox" id="d5" name="d5" ng-model="form.d5" ng-checked="form.d5 > 0">
+                                        F
+                                        <span></span>
+                                    </label>
+                                    <label class="m-checkbox m-checkbox--solid">
+                                        <input type="checkbox" id="d6" name="d6" ng-model="form.d6" ng-checked="form.d6 > 0">
+                                        S
+                                        <span></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group m-form__group">
+                                <label for="product_code">
+                                    Discount
+                                </label>
+                                <input ng-disabled="!form.product_discount" type="text" class="form-control m-input m-input--solid" id="product_discount_percentage"
+                                 name="product_discount_percentage" numbers-only ng-model="form.product_discount_percentage" aria-describedby="product_discount_percentage" placeholder="insert discount percentage here">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group m-form__group required">
+                                <label for="product_name">
+                                    Price
+                                </label>
+                                <input required type="text" class="form-control m-input m-input--solid" id="product_code"
+                                 name="product_price" ng-model="form.product_price" aria-describedby="product_price" placeholder="insert price here"  floating-number-only ng-pattern="/(^[0-9]{1,9})+(\.[0-9]{1,4})?$/">
+                                <span ng-show="!form.product_price" class="m-form__help theme-color m-t-5">
+                                this field is required
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group m-form__group">
+                                <label for="exampleInputEmail1">
+                                    Item File Image
+                                </label>
+                                <div></div>
+                                <div class="custom-file">
+                                    <input type="file" name="image" onchange="angular.element(this).scope().uploadedFile(this);" class="custom-file-input m-input--solid" id="customFile">
+                                    <label class="custom-file-label" for="customFile">
+                                        Choose file
+                                    </label>
+                                    <label class="hidden file-name"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" ng-disabled="editProduct.$invalid" class="btn btn-primary-1">
+                        Save Changes
+                    </button>
+                    <button type="button" class="btn btn-secondary-2" data-dismiss="modal">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,38 @@
+<div class="modal fade" id="search-product-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <form method="POST" name="searchProductForm" id="searchProductForm" role="form" ng-submit="searchProduct(searchProductForm.$valid)">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="add-title">
+                        SEARCH PRODUCT
+                    </h5>
+                </div>
+                <div class="modal-body">
+                    <div class="row">   
+                        <div class="col-sm-12">
+                            <div class="form-group m-form__group">
+                                <div class="input-group">
+                                    <input autocomplete="off" name="keywords" ng-model="datas.searchProduct" ng-change="searchProduct()" type="text" class="form-control form-control-lg m-input m-input--solid" placeholder="search or tap your product id...">
+                                    <div class="input-group-append">
+                                        <button id="reset-keywords" ng-click="clearProduct(yes)" class="btn btn-primary-1" type="button">
+                                            <i class="fa fa-reply-all"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <button ng-click="resetForm()" type="button" class="btn btn-primary-1" data-dismiss="modal">
+                                Close
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

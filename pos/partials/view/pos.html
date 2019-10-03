@@ -1,0 +1,135 @@
+<div class="row" my-enter="doSomething()">
+	<div class="col-lg-9">
+		<div class="row p-t-22">
+			<div class="col-sm-4 pages">
+				<p> showing {{ (pageNumber-1) * itemPerPage +1 }} - {{(pageNumber*itemPerPage) > totalItems ? totalItems:(pageNumber*itemPerPage)}} of {{ totalItems }} items </p>
+			</div>
+			<div class="col-sm-8">
+				<dir-pagination-controls class="pull-right" on-page-change="pageChanged(newPageNumber)" direction-links="true"
+		        boundary-links="true" template-url="partials/pagination/dirPagination.html" ></dir-pagination-controls>
+			</div>
+			<div class="col-sm-4" dir-paginate="value in data | itemsPerPage:9" total-items="totalItems">
+				<!--begin::Portlet-->
+				<div class="m-portlet m-portlet--mobile">
+					<div class="m-portlet__body" ng-class="(value.product_quantity == 0 || checkLocked(value.product_id) > 0) ? 'disabled-bg' : ''">
+						<div class="disabled-port" ng-if="value.product_quantity == 0"></div>
+						<div class="ribbonWrap" ng-if="value.product_new == 1">
+					        <div class="ribbon">New Item</div>       
+					    </div>
+					    <div class="ribbonWrap" ng-if="value.product_discount_percentage > 0">
+					        <div class="ribbon">Discount</div>       
+					    </div>
+					    <div class="img-container text-center">
+							<img ng-src="http://127.0.0.1/samsv2-api/uploads/product/{{ value.product_img }}" />
+						</div>
+						<h2 class="price" ng-class="(value.product_discount_percentage > 0) ? '' : 'no-discount'">
+							<span ng-bind="productPrice(value.product_price)"></span> 
+							<span ng-bind="productDiscount(value.product_discount_percentage)" ng-if="value.product_discount_percentage > 0">
+							</span>
+						</h2>
+						<h2 class="discount" ng-bind="totalDiscountValue(value.product_price, value.product_discount_percentage)" ng-if="value.product_discount_percentage > 0">
+						</h2>
+						<h5 class="text-center product-name" ng-class="(value.product_img) ? '' : 'm-t-40'">
+							<strong>{{ value.product_name }}</strong>
+						</h5>
+						<div ng-class="(value.product_quantity == 0 || checkLocked(value.product_id) > 0) ? 'hidden' : ''" class="btn-group" role="group" aria-label="Default button group">
+							<button type="button" ng-click="negate($index, 1)" class="col-xs-4 m-btn m-btn--square btn btn-third theme-bg-2 c-white">
+								<i class="fa fa-minus"></i>
+							</button>
+							<button type="button" class="col-xs-4 m-btn m-btn--square btn btn-second btn-disabled">
+								{{ value.product_counter }}
+							</button>
+							<button type="button" ng-click="count($index, 1, value.product_quantity, value.product_id)" class="col-xs-4 m-btn m-btn--square btn btn-third theme-bg-2 c-white m-r-10">
+								<i class="fa fa-plus"></i>
+							</button>
+						</div>	
+						<div ng-show="(value.product_quantity == 0 || checkLocked(value.product_id) > 0)" class="btn-group" role="group" aria-label="Default button group">
+							<button type="button" class="col-xs-4 m-btn m-btn--square btn btn-third theme-bg-2 c-white">
+								<i class="fa fa-minus"></i>
+							</button>
+							<button type="button" class="col-xs-4 m-btn m-btn--square btn btn-second btn-disabled">
+								{{ value.product_counter }}
+							</button>
+							<button type="button" class="col-xs-4 m-btn m-btn--square btn btn-third theme-bg-2 c-white m-r-10">
+								<i class="fa fa-plus"></i>
+							</button>
+						</div>	
+						<button type="button" class="m-btn btn m-btn--square theme-bg theme-border c-white full-width" ng-click="addItem($index, value.product_id, value.product_name, value.product_counter, value.product_price, '', value.product_discount_percentage)">
+							ADD ITEMS
+						</button>									
+					</div>
+				</div>
+				<!--end::Portlet-->	
+			</div>
+		</div>
+	</div>
+
+	<div class="col-lg-3 p-r-0 p-l-15 list-orders">
+		<!--begin::Portlet-->
+			<div class="m-portlet m-portlet--mobile full-height m-b-0">
+				<div class="m-portlet__body">
+					<div class="list-items">
+						<h6>
+							<strong>LIST OF ITEMS</strong>
+							<button class="pull-right remove-all-items" ng-click="removeAll()">clear items</button>
+						</h6>
+						<div class="m-list-timeline scrollify">
+							<div class="m-list-timeline__items upper">
+								<div ng-click="editItem($index, product.id, product.name, product.quantity, product.price, product.total_price, product.discount)" data-toggle="modal" data-target="#edit-checkout-item-modal" data-backdrop="static" class="m-list-timeline__item" ng-repeat="product in selectedItems">
+									<span class="m-list-timeline__badge"></span>
+									<span class="m-list-timeline__text">
+										{{ product.name }} x {{ product.quantity }}
+									</span>
+									<span class="m-list-timeline__time">
+										{{ product.total_price }} 
+									</span>
+								</div>
+							</div>
+						</div>
+						
+						
+
+						<div class="m-list-timeline total-selected-price" ng-if="0 < selectedCount">
+							<div class="m-list-timeline__items">
+								<div class="m-list-timeline__item">
+									<span class="m-list-timeline__badge"></span>
+									<span class="m-list-timeline__text">
+										TOTAL PRICE
+									</span>
+									<span class="m-list-timeline__time">
+										{{ totalPrice }}
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<a  href="javascript:;" ng-click="openCheckout()" class="btn m-btn--square  btn-primary btn-block theme-bg theme-border">
+						CHECKOUT
+					</a> 
+				</div>
+			</div>
+
+			<input type="search" class="hiddenText" ng-change="searchPOS()" ng-model="datas.searchPOS"/>
+		<!--end::Portlet-->	
+		</div>
+	</div>
+
+	<!-- barcode -->
+	<div class="hidden">
+		<div data-barcode-scanner="barcodeScanned"></div>
+	    <div>
+	        <span>Barcode:</span>
+	        <span data-ng-bind="model.barcode"></span>
+	    </div>
+	    <div><input type="text" data-ng-model="testvalue"></input></div>
+	    <div><span data-ng-bind="testvalue"></span></div>
+	</div>
+	<!-- end barcode -->
+
+</div>	
+
+<div ng-include="'partials/add/checkout.html'"></div>
+<div ng-include="'partials/add/edit-checkout-item.html'"></div>
+<div ng-include="'partials/add/edit-checkout-amount.html'"></div>
+<div ng-include="'partials/add/balance-inquiry.html'"></div>
+

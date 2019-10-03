@@ -1,0 +1,101 @@
+<div class="modal fade" id="add-load-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <form method="POST" name="addForm" id="addForm" role="form" ng-submit="saveForm(addForm.$valid)">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="add-title">
+                        Add Credit 
+                    </h5>
+                </div>
+                <div class="modal-body">
+                    <div class="row hidden">
+                        <div class="col-sm-6 text-right">
+                            <div class="form-group m-form__group">
+                                <label for="desc">
+                                    ID
+                                </label>
+                                <input type="text" class="form-control text-center form-control-lg m-input m-input--solid idz" id="idz" name="idz" ng-model="form.id" aria-describedby="idz" placeholder="0">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 text-right">
+                            <div class="form-group m-form__group">
+                                <label for="code">
+                                    FULLNAME
+                                </label>
+                                <h5 class="theme-color fullname">RAED EUONE A. FLORES</h5>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group m-form__group">
+                                <label for="code">
+                                    STUD NO.
+                                </label>
+                                <h5 class="theme-color stud_no">15-01383</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 text-right">
+                            <div class="form-group m-form__group">
+                                <label for="code">
+                                    LEVEL
+                                </label>
+                                <h5 class="theme-color level">Pre-Nursery</h5>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group m-form__group">
+                                <label for="code">
+                                    MSISDN
+                                </label>
+                                <h5 class="theme-color msisdn">09063300908</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3"></div>
+                        <div class="col-sm-6 text-center">
+                            <div class="form-group m-form__group">
+                                <label for="code">
+                                    Available Credit
+                                </label>
+                                <h4 class="theme-color credit">0.00</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3"></div>
+                        <div class="col-sm-6 text-center">
+                            <div class="form-group m-form__group">
+                                <label for="desc">
+                                    Add Credit Balance
+                                </label>
+                                <input required type="text" class="form-control text-center form-control-lg m-input m-input--solid" id="credits" name="credits" ng-model="form.credits" aria-describedby="credits" placeholder="0" floating-number-only ng-pattern="/(^[0-9]{1,9})+(\.[0-9]{1,4})?$/">
+                                <span ng-show="!form.credits" class="m-form__help theme-color m-t-5" >
+                                this field is required
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row m-t-10">
+                        <div class="col-sm-6 text-right p-r-5">
+                            <button type="submit" ng-disabled="addForm.$invalid" class="btn btn-primary-1">
+                                Add Credit
+                            </button>
+                        </div>
+                        <div class="col-sm-6 p-l-5">
+                            <button ng-click="resetForm()" type="button" class="btn btn-secondary-2" data-dismiss="modal">
+                                Close
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

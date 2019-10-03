@@ -1,0 +1,104 @@
+<div class="modal fade" id="add-user-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <form method="POST" name="addForm" id="addForm" role="form" ng-submit="saveForm(addForm.$valid)">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="add-title">
+                        Add New User
+                    </h5>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group m-form__group required">
+                                <label for="suppliers_mobile">
+                                    Profile Account
+                                </label>
+                                <select data-select-watcher class="selectpicker form-control m-bootstrap-select m-bootstrap-select--solid m_selectpicker m-input--solid" ng-model="form.profile_id" required ng-options="profile.value as profile.name for profile in profiles" id="profile_id" name="profile_id">
+                                <option value="" selected>select profile here</option>
+                                </select>
+                                <span ng-show="!form.profile_id" class="m-form__help theme-color m-t-5">
+                                this field is required
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group m-form__group required">
+                                <label for="suppliers_mobile">
+                                    Privilege
+                                </label>
+                                <select data-select-watcher class="selectpicker form-control m-bootstrap-select m-bootstrap-select--solid m_selectpicker m-input--solid" ng-model="form.privilege_id" required ng-options="privilege.value as privilege.name for privilege in privileges" id="privilege_id" name="privilege_id">
+                                <option value="" selected>select privilege here</option>
+                                </select>
+                                <span ng-show="!form.privilege_id" class="m-form__help theme-color m-t-5">
+                                this field is required
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group m-form__group required">
+                                <label for="username">
+                                    Username
+                                </label>
+                                <input required type="text" class="form-control m-input m-input--solid" id="username"
+                                 name="username" ng-model="form.username" aria-describedby="username" placeholder="insert username here">
+                                <span ng-show="!form.username" class="m-form__help theme-color m-t-5">
+                                this field is required
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group m-form__group required">
+                                <label for="password">
+                                    Password
+                                </label>
+                                <input required type="password" class="form-control m-input m-input--solid" id="password"
+                                 name="password" ng-minlength="7" ng-model="form.password" aria-describedby="password" placeholder="insert passwor here">
+                                <span ng-show="!form.password" class="m-form__help theme-color m-t-5">
+                                required atleast 7 characters
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group m-form__group required">
+                                <label for="suppliers_mobile">
+                                    Secret Question
+                                </label>
+                                <select data-select-watcher class="selectpicker form-control m-bootstrap-select m-bootstrap-select--solid m_selectpicker m-input--solid" ng-model="form.secret_id" required ng-options="secret.value as secret.name for secret in secrets" id="secret_id" name="secret_id">
+                                <option value="" selected>select secret question here</option>
+                                </select>
+                                <span ng-show="!form.secret_id" class="m-form__help theme-color m-t-5">
+                                this field is required
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group m-form__group required">
+                                <label for="password">
+                                    Secret Password
+                                </label>
+                                <input required type="password" class="form-control m-input m-input--solid" id="secret_password"
+                                 name="secret_password" ng-minlength="7" ng-model="form.secret_password" aria-describedby="secret_password" placeholder="insert secret password here">
+                                <span ng-show="!form.secret_password" class="m-form__help theme-color m-t-5">
+                                required atleast 7 characters
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" ng-disabled="addForm.$invalid" class="btn btn-primary-1">
+                        Save Changes
+                    </button>
+                    <button ng-click="resetForm()" type="button" class="btn btn-secondary-2" data-dismiss="modal">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

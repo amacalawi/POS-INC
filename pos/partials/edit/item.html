@@ -1,0 +1,111 @@
+<div class="modal fade" id="edit-item-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <form method="POST" name="editItem" id="editItem" role="form" ng-submit="updateItem(editItem.$valid)">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="edit-title">
+                        Edit Item ({{ form.item_id }})
+                    </h5>
+                </div>
+                <div class="modal-body">
+                    <div class="row hidden">
+                        <div class="col-sm-12">
+                            <div class="form-group m-form__group">
+                                <label for="id">
+                                    ID
+                                </label>
+                                <input type="text" class="form-control m-input m-input--solid" id="id"
+                                 name="id" ng-model="form.id" aria-describedby="id" placeholder="insert id here">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group m-form__group">
+                                <label for="item_code">
+                                    Code
+                                </label>
+                                <input required type="text" class="form-control m-input m-input--solid" id="item_code" name="item_code" ng-model="form.item_code" aria-describedby="item_code" placeholder="insert code here">
+                                <span ng-show="!form.item_code" class="m-form__help theme-color m-t-5">
+                                    this field is required
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group m-form__group required">
+                                <label for="item_name">
+                                    Name
+                                </label>
+                                <input required type="text" class="form-control m-input m-input--solid" id="item_name" name="item_name" ng-model="form.item_name" aria-describedby="item_name" placeholder="insert name here">
+                                <span ng-show="!form.item_name" class="m-form__help theme-color m-t-5">
+                                    this field is required
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group m-form__group">
+                                <label for="item_desc">
+                                    Description
+                                </label>
+                                <textarea class="form-control m-input m-input--solid" id="item_desc" name="item_desc" ng-model="form.item_desc" rows="3" placeholder="insert description here"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group m-form__group m-typeahead">
+                                <label for="gl_accounts">
+                                    GL Accounts
+                                </label>
+                                <input required type="text" class="typeahead form-control m-input m-input--solid" id="gl_accounts_id" name="gl_accounts_id" ng-model="form.gl_accounts_id" aria-describedby="gl_accounts_id" placeholder="insert gl accounts here">
+                                <span ng-show="!form.gl_accounts_id" class="m-form__help theme-color m-t-5">
+                                this field is required
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group m-form__group">
+                                <label for="suppliers_mobile">
+                                    Unit Of Measurement
+                                </label>
+                                <select required data-select-watcher class="selectpicker form-control m-bootstrap-select m-bootstrap-select--solid m_selectpicker m-input--solid" ng-model="form.unit_of_measurement_id" ng-options="uom.value as uom.name for uom in unit_of_measurement" id="payment_terms_id" name="payment_terms_id" data-live-search="true">
+                                    <option value="" selected>select unit of measurement here</option>
+                                </select>
+                                <span ng-show="!form.unit_of_measurement_id" class="m-form__help theme-color m-t-5 help-block">
+                                this field is required
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group m-form__group">
+                                <label for="exampleInputEmail1">
+                                    Item File Image
+                                </label>
+                                <div></div>
+                                <div class="custom-file">
+                                    <input type="file" name="image" onchange="angular.element(this).scope().uploadedFile(this);" class="custom-file-input m-input--solid" id="customFile">
+                                    <label class="custom-file-label" for="customFile">
+                                        Choose file
+                                    </label>
+                                    <label class="hidden file-name"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" ng-disabled="editItem.$invalid" class="btn btn-primary-1">
+                        Save Changes
+                    </button>
+                    <button ng-click="resetForm()" type="button" class="btn btn-secondary-2" data-dismiss="modal">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

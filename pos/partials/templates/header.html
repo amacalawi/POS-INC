@@ -1,0 +1,365 @@
+<header class="m-grid__item		m-header "  data-minimize="minimize" data-minimize-offset="200" data-minimize-mobile-offset="200" >
+	<div class="m-header__top">
+		<div class="m-container m-container--responsive m-container--xxl m-container--full-height m-page__container">
+			<div class="m-stack m-stack--ver m-stack--desktop">
+				<!-- begin::Brand -->
+				<div class="m-stack__item m-brand">
+					<div class="m-stack m-stack--ver m-stack--general m-stack--inline">
+						<div class="m-stack__item m-stack__item--middle m-brand__logo">
+							<a href="index.html" class="m-brand__logo-wrapper">
+								<!-- CASHLESS CAFETERIA SYSTEM -->
+								<img alt="CASHLESS CAFETERIA SYSTEM" ng-src="./assets/media/img/logos/logo.png"/>
+							</a>
+						</div>
+						<div class="m-stack__item m-stack__item--middle m-brand__tools">
+							
+							<!-- begin::Responsive Header Menu Toggler-->
+							<a id="m_aside_header_menu_mobile_toggle" href="javascript:;" class="m-brand__icon m-brand__toggler m--visible-tablet-and-mobile-inline-block">
+								<span></span>
+							</a>
+							<!-- end::Responsive Header Menu Toggler-->
+							<!-- begin::Topbar Toggler-->
+							<a id="m_aside_header_topbar_mobile_toggle" href="javascript:;" class="m-brand__icon m--visible-tablet-and-mobile-inline-block">
+								<i class="flaticon-more"></i>
+							</a>
+							<!--end::Topbar Toggler-->
+						</div>
+					</div>
+				</div>
+				<!-- end::Brand -->		
+				<!-- begin::Topbar -->
+				<div class="m-stack__item m-stack__item--fluid m-header-head" id="m_header_nav">
+					<div id="m_header_topbar" class="m-topbar  m-stack m-stack--ver m-stack--general">
+						<div class="m-stack__item m-topbar__nav-wrapper">
+							<ul class="m-topbar__nav m-nav m-nav--inline">
+								<li class="m-nav__item m-topbar__user-profile m-topbar__user-profile--img  m-dropdown m-dropdown--medium m-dropdown--arrow m-dropdown--header-bg-fill m-dropdown--align-right m-dropdown--mobile-full-width m-dropdown--skin-light" data-dropdown-toggle="click">
+									<a href="javascript:;" class="m-nav__link m-dropdown__toggle">
+										<span class="m-topbar__userpic m--hide">
+											<img src="./assets/media/img/users/user4.jpg" class="m--img-rounded m--marginless m--img-centered" alt=""/>
+										</span>
+										<span class="m-topbar__welcome">
+											Hello,&nbsp;
+										</span>
+										<span class="m-topbar__username">
+											{{ profiles.firstname }}
+										</span>
+									</a>
+									<div class="m-dropdown__wrapper">
+										<span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
+										<div class="m-dropdown__inner">
+											<div class="m-dropdown__header m--align-center" style="background: url(.././assets/media/img/misc/user_profile_bg.jpg); background-size: cover;">
+												<div class="m-card-user m-card-user--skin-dark">
+													<div class="m-card-user__pic">
+														<img src="./assets/media/img/users/user4.jpg" class="m--img-rounded m--marginless" alt=""/>
+													</div>
+													<div class="m-card-user__details">
+														<span class="m-card-user__name m--font-weight-500">
+															{{ profiles.firstname | capitalize }} {{ profiles.lastname  | capitalize }}
+														</span>
+														<a href="" class="m-card-user__email m--font-weight-300 m-link">
+															{{ profiles.email }}
+														</a>
+													</div>
+												</div>
+											</div>
+											<div class="m-dropdown__body">
+												<div class="m-dropdown__content">
+													<ul class="m-nav m-nav--skin-light">
+														<li class="m-nav__section m--hide">
+															<span class="m-nav__section-text">
+																Section
+															</span>
+														</li>
+														<li class="m-nav__item">
+															<a href="profile.html" class="m-nav__link">
+																<i class="m-nav__link-icon flaticon-profile-1"></i>
+																<span class="m-nav__link-title">
+																	<span class="m-nav__link-wrap">
+																		<span class="m-nav__link-text">
+																			My Profile
+																		</span>
+																		<span class="m-nav__link-badge">
+																			<span class="m-badge m-badge--success">
+																				2
+																			</span>
+																		</span>
+																	</span>
+																</span>
+															</a>
+														</li>
+														<li class="m-nav__item">
+															<a href="profile.html" class="m-nav__link">
+																<i class="m-nav__link-icon flaticon-info"></i>
+																<span class="m-nav__link-text">
+																	FAQ
+																</span>
+															</a>
+														</li>
+														<li class="m-nav__item">
+															<a href="profile.html" class="m-nav__link">
+																<i class="m-nav__link-icon flaticon-lifebuoy"></i>
+																<span class="m-nav__link-text">
+																	Support
+																</span>
+															</a>
+														</li>
+														<li class="m-nav__separator m-nav__separator--fit"></li>
+														<li class="m-nav__item">
+															<a href="#/logout" class="btn m-btn--pill btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder">
+																Logout
+															</a>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+								</li>
+								<li class="m-nav__item m-topbar__notifications m-topbar__notifications--img m-dropdown m-dropdown--large m-dropdown--header-bg-fill m-dropdown--arrow m-dropdown--align-center 	m-dropdown--mobile-full-width" data-dropdown-toggle="click" data-dropdown-persistent="true">
+									<a href="javascript:;" class="m-nav__link m-dropdown__toggle" id="m_topbar_notification_icon" ng-click="resetNotif()">
+										<span class="m-nav__link-badge m-badge m-badge--dot m-badge--dot-small m-badge--danger"></span>
+										<span class="m-nav__link-icon">
+											<span class="m-nav__link-icon-wrapper">
+												<i class="flaticon-music-2"></i>
+											</span>
+										</span>
+									</a>
+									<div class="m-dropdown__wrapper">
+										<span class="m-dropdown__arrow m-dropdown__arrow--center"></span>
+										<div class="m-dropdown__inner">
+											<div class="m-dropdown__header m--align-center" style="background: url(./assets/media/img/misc/notification_bg.jpg); background-size: cover;">
+												<span class="m-dropdown__header-title">
+													9 New
+												</span>
+												<span class="m-dropdown__header-subtitle">
+													Notifications
+												</span>
+											</div>
+											<div class="m-dropdown__body">
+												<div class="m-dropdown__content">
+
+													<ul class="nav nav-tabs m-tabs m-tabs-line m-tabs-line--brand" active="activePending" role="tablist">
+														<li class="nav-item m-tabs__item">
+															<a class="nav-link m-tabs__link active" data-toggle="tab" href="#pending-transaction"  target="_self" role="tab">
+																Pending
+															</a>
+														</li>
+														<li class="nav-item m-tabs__item">
+															<a class="nav-link m-tabs__link" data-toggle="tab" href="#reserved-transaction" target="_self" role="tab">
+																Reserved
+															</a>
+														</li>
+														<li class="nav-item m-tabs__item">
+															<a class="nav-link m-tabs__link" data-toggle="tab" href="#served-transaction" target="_self" role="tab">
+																Served
+															</a>
+														</li>
+														<li class="nav-item m-tabs__item">
+															<a class="nav-link m-tabs__link" data-toggle="tab" href="#cancelled-transaction" target="_self" role="tab">
+																Cancelled
+															</a>
+														</li>
+													</ul>
+
+													<div class="tab-content">
+														<div class="tab-pane active" id="pending-transaction" role="tabpanel">
+															<div class="m-scrollable" data-scrollable="true" data-max-height="250" data-mobile-max-height="200">
+																<div class="m-list-timeline m-list-timeline--skin-light">
+																	<div class="form-group m-form__group m-b-20">
+										                                <input type="text" class="form-control m-input m-input--solid" ng-change="searchPending()" ng-model="datas.searchPending"  placeholder="Search for transaction...">
+										                            </div>
+																	<div class="m-list-timeline__items"> 
+																		<div class="m-list-timeline__item" ng-repeat="pending in PendingData">
+																			<span class="m-list-timeline__badge -m-list-timeline__badge--state-success"></span>
+																			<span class="m-list-timeline__text">
+																				{{ pending.trans_no }}
+																				<span ng-show="{{ pending.status == 'pending' }}" class="m-badge m-badge--warning m-badge--wide pending-bg">
+																					pending
+																				</span>
+																			</span>
+																			<span class="m-list-timeline__time">
+																				<a href="javascript:;" class="cancel-btn" ng-click="cancelPendingTrans(pending.trans_no)">cancel</a>
+																				<a href="javascript:;" class="proceed-btn" ng-click="proceedPendingTrans(pending.trans_no)">proceed</a>
+																			</span>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="tab-pane" id="reserved-transaction" role="tabpanel">
+															<div class="m-scrollable" data-scrollable="true" data-max-height="250" data-mobile-max-height="200">
+																<div class="m-list-timeline m-list-timeline--skin-light">
+																	<div class="form-group m-form__group m-b-20">
+										                                <input type="text" class="form-control m-input m-input--solid" ng-change="searchReserved()" ng-model="datas.searchReserved" placeholder="Search for transaction...">
+										                            </div>
+																	<div class="m-list-timeline__items">
+																		<div class="m-list-timeline__item" ng-repeat="reserved in ReservedData">
+																			<span class="m-list-timeline__badge -m-list-timeline__badge--state-success"></span>
+																			<span class="m-list-timeline__text">
+																				{{ reserved.trans_no }}
+																				<span ng-show="{{ reserved.status == 'reserved' }}" class="m-badge m-badge--warning m-badge--wide reserved-bg">
+																					reserved
+																				</span>
+																			</span>
+																			<span class="m-list-timeline__time">
+																				<a href="javascript:;" class="cancel-btn" ng-click="cancelReservedTrans(reserved.trans_no)">cancel</a>
+																				<a href="javascript:;" class="proceed-btn" ng-click="proceedReservedTrans(reserved.trans_no)">proceed</a>
+																			</span>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="tab-pane" id="served-transaction" role="tabpanel">
+															<div class="m-scrollable" data-scrollable="true" data-max-height="250" data-mobile-max-height="200">
+																<div class="m-list-timeline m-list-timeline--skin-light">
+																	<div class="form-group m-form__group m-b-20">
+										                                <input type="text" class="form-control m-input m-input--solid" ng-change="searchServed()" ng-model="datas.searchServed" placeholder="Search for transaction...">
+										                            </div>
+																	<div class="m-list-timeline__items">
+																		<div class="m-list-timeline__item" ng-repeat="served in ServedData">
+																			<span class="m-list-timeline__badge -m-list-timeline__badge--state-success"></span>
+																			<span class="m-list-timeline__text">
+																				{{ served.trans_no }}
+																				<span ng-show="{{ served.status == 'served' }}" class="m-badge m-badge--warning m-badge--wide served-bg">
+																					served
+																				</span>
+																			</span>
+																			<span class="m-list-timeline__time">
+																				<a href="javascript:;" class="cancel-btn" ng-click="cancelServedTrans(served.trans_no)">cancel</a>
+																			</span>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="tab-pane" id="cancelled-transaction" role="tabpanel">
+															<div class="m-scrollable" data-scrollable="true" data-max-height="250" data-mobile-max-height="200">
+																<div class="m-list-timeline m-list-timeline--skin-light">
+																	<div class="form-group m-form__group m-b-20">
+										                                <input type="text" class="form-control m-input m-input--solid" ng-change="searchCancelled()" ng-model="datas.searchCancelled" placeholder="Search for transaction...">
+										                            </div>
+																	<div class="m-list-timeline__items">
+																		<div class="m-list-timeline__item" ng-repeat="cancelled in CancelledData">
+																			<span class="m-list-timeline__badge -m-list-timeline__badge--state-success"></span>
+																			<span class="m-list-timeline__text">
+																				{{ cancelled.trans_no }}
+																				<span ng-show="{{ cancelled.status == 'cancelled' }}" class="m-badge m-badge--warning m-badge--wide cancelled-bg">
+																					cancelled
+																				</span>
+																			</span>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>											
+												</div>
+											</div>
+										</div>
+									</div>
+								</li>
+								<li class="m-nav__item m-topbar__quick-actions m-topbar__quick-actions--img m-dropdown m-dropdown--large m-dropdown--header-bg-fill m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push m-dropdown--mobile-full-width m-dropdown--skin-light"  data-dropdown-toggle="click">
+									<a href="javascript:;" class="m-nav__link m-dropdown__toggle">
+										<span class="m-nav__link-badge m-badge m-badge--dot m-badge--info m--hide"></span>
+										<span class="m-nav__link-icon">
+											<span class="m-nav__link-icon-wrapper">
+												<i class="flaticon-share"></i>
+											</span>
+										</span>
+									</a>
+									<div class="m-dropdown__wrapper">
+										<span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
+										<div class="m-dropdown__inner">
+											<div class="m-dropdown__header m--align-center" style="background: url(./assets/media/img/misc/quick_actions_bg.jpg); background-size: cover;">
+												<span class="m-dropdown__header-title">
+													Quick Actions
+												</span>
+												<span class="m-dropdown__header-subtitle">
+													Shortcuts
+												</span>
+											</div>
+											<div class="m-dropdown__body m-dropdown__body--paddingless">
+												<div class="m-dropdown__content">
+													<div class="m-scrollable" data-scrollable="false" data-max-height="380" data-mobile-max-height="200">
+														<div class="m-nav-grid m-nav-grid--skin-light">
+															<div class="m-nav-grid__row">
+																<a href="#/generate-reports" class="m-nav-grid__item">
+																	<i class="m-nav-grid__icon flaticon-clipboard"></i>
+																	<span class="m-nav-grid__text">
+																		Generate Report
+																	</span>
+																</a>
+																<a href="#/manage-system" class="m-nav-grid__item">
+																	<i class="m-nav-grid__icon flaticon-folder-2"></i>
+																	<span class="m-nav-grid__text">
+																		Manage System
+																	</span>
+																</a>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</li>
+								<li id="m_quick_sidebar_toggle" class="m-nav__item">
+									<a href="javascript:;" class="m-nav__link m-dropdown__toggle">
+										<span class="m-nav__link-icon m-nav__link-icon--aside-toggle">
+											<span class="m-nav__link-icon-wrapper">
+												<i class="flaticon-grid-menu"></i>
+											</span>
+										</span>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!-- end::Topbar -->
+			</div>
+		</div>
+	</div>
+	<div class="m-header__bottom">
+		<div class="m-container m-container--responsive m-container--xxl m-container--full-height m-page__container">
+			<div class="m-stack m-stack--ver m-stack--desktop">
+				<!-- begin::Horizontal Menu ng-init="selectedTab = 'deals'" -->
+				<div class="m-stack__item m-stack__item--middle m-stack__item--fluid">
+					<button class="m-aside-header-menu-mobile-close  m-aside-header-menu-mobile-close--skin-light " id="m_aside_header_menu_mobile_close_btn">
+						<i class="la la-close"></i>
+					</button>
+					<div id="m_header_menu" class="m-header-menu m-aside-header-menu-mobile m-aside-header-menu-mobile--offcanvas  m-header-menu--skin-dark m-header-menu--submenu-skin-light m-aside-header-menu-mobile--skin-light m-aside-header-menu-mobile--submenu-skin-light "  >
+						<ul ng-controller="NavCtrl" class="m-menu__nav  m-menu__nav--submenu-arrow ">
+							<li ng-class="getClass('/{{ menu.slug }}')" ng-repeat="menu in nav" class="m-menu__item" aria-haspopup="true">
+								<a  href="#/{{ menu.slug }}" class="m-menu__link ">
+									<span class="m-menu__item-here"></span>
+									<span class="m-menu__link-text">
+										{{ menu.name }} 
+									</span>
+								</a>
+							</li>
+							<li class="m-menu__item pull-right kiosk"  aria-haspopup="true">
+								<a  href="javascript:;" class="m-menu__link ">
+									<span class="m-menu__item-here"></span>
+									<span class="m-menu__link-text">
+										<i class="fa fa-shopping-cart"></i> {{ (checkoutItems > 1) ? checkoutItems + ' items' : checkoutItems + ' item'  }}
+									</span>
+								</a>
+							</li>
+							<li class="m-menu__item pull-right kiosk"  aria-haspopup="true">
+								<a  ng-click="OpenBalance()" href="javascript:;" class="m-menu__link ">
+									<span class="m-menu__item-here"></span>
+									<span class="m-menu__link-text">
+										<i class="la la-barcode"></i> Balance Inquiry
+									</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!-- end::Horizontal Menu -->	
+			</div>
+		</div>
+	</div>
+</header>
